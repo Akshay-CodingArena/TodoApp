@@ -1,0 +1,42 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 56px;
+  padding: 12px 16px;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--header-shadow);
+}
+
+.app-header__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -8px 0 -8px -8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.app-header__back:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.app-header__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.app-header:not(:has(.app-header__back)) .app-header__title {
+  width: 100%;
+  text-align: left;
+}

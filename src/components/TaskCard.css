@@ -1,0 +1,216 @@
+.task-card {
+  position: relative;
+  padding: 14px 14px 14px 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  animation: taskCardEnter 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.task-card:hover,
+.task-card:focus-within {
+  border-color: none;
+  background-color: var(--shadow-card-hover);
+}
+
+.task-card--exit {
+  animation: taskCardExit 0.28s ease forwards;
+  pointer-events: none;
+}
+
+.task-card__body {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.task-card__clock {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--icon-circle-bg);
+}
+
+.task-card__main {
+  min-width: 0;
+  flex: 1;
+}
+
+.task-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.task-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.task-card__badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.task-card__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.task-card__badge--pending {
+  background: var(--badge-pending-bg);
+  color: var(--badge-pending-text);
+}
+
+.task-card__badge--pending .task-card__badge-dot {
+  background: var(--status-pending-dot);
+}
+
+.task-card__badge--in_progress {
+  background: var(--badge-progress-bg);
+  color: var(--badge-progress-text);
+}
+
+.task-card__badge--in_progress .task-card__badge-dot {
+  background: var(--status-progress-dot);
+}
+
+.task-card__badge--completed {
+  background: var(--badge-done-bg);
+  color: var(--badge-done-text);
+}
+
+.task-card__badge--completed .task-card__badge-dot {
+  background: var(--status-done-dot);
+}
+
+.task-card__desc {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-card__desc-placeholder {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.task-card__date {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.task-card__actions {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .task-card:hover .task-card__actions,
+  .task-card:focus-within .task-card__actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (hover: none) {
+  .task-card__actions {
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 0px;
+    transform: none;
+  }
+}
+
+.task-card__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease;
+}
+
+.task-card__icon-btn:active {
+  transform: scale(0.94);
+}
+
+.task-card__icon-btn--edit {
+  color: var(--primary);
+}
+
+.task-card__icon-btn--edit:hover {
+  background: var(--primary-ghost);
+}
+
+.task-card__icon-btn--delete {
+  color: var(--danger);
+}
+
+.task-card__icon-btn--delete:hover {
+  background: var(--danger-bg);
+}
+
+@keyframes taskCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes taskCardExit {
+  to {
+    opacity: 0;
+    transform: translateX(10px) scale(0.98);
+  }
+}

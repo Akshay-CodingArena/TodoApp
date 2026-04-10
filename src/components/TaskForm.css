@@ -1,0 +1,95 @@
+.task-form {
+  padding: 20px 16px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-form__input,
+.task-form__textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  background: var(--surface);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  resize: vertical;
+  min-height: 52px;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.task-form__textarea {
+  min-height: 120px;
+  line-height: 1.45;
+}
+
+.task-form__input:focus,
+.task-form__textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.task-form__input::placeholder,
+.task-form__textarea::placeholder {
+  color: var(--muted);
+}
+
+.task-form__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.task-form__btn {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: var(--border-radius);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    filter 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.task-form__btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.task-form__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.task-form__btn--secondary {
+  border: 2px solid var(--primary);
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.task-form__btn--secondary:hover:not(:disabled) {
+  background: var(--primary-ghost);
+}
+
+.task-form__btn--primary {
+  border: none;
+  background: var(--primary);
+  color: #fff;
+}
+
+.task-form__btn--primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
